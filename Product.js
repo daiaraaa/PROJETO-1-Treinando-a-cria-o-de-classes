@@ -1,34 +1,30 @@
 class Product {
     constructor(name, description, price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.inStock = 0;
+        this.name = name
+        this.description = description
+        this.price = price
+        this.inStock = 0
+
     }
 
-    addToStock(quantity) {
-        this.inStock += quantity;
+    addToSock(quantidade) {
+        this.inStock += quantidade
     }
 
     calculateDiscount(discountPercentage) {
-        const discountAmount = this.price * (discountPercentage / 100);
-        return this.price - discountAmount;
+        const discountAmount = this.price * (discountPercentage / 100)
+        return this.price - discountAmount
     }
 }
 
-module.exports = Product;
+const desconto = new Product("Notebook", "Notebook Samsung Galaxy Book2", 2189.00)
+desconto.addToSock(10)
 
-const Product = require('./product');
-
-const produto = new Product("Notebook", "Notebook Nitro 5", 1000.00);
-produto.addToStock(10);
-
-console.log(`Nome do produto: ${produto.name}`);
-console.log(`Descrição do produto: ${produto.description}`);
-console.log(`Valor do produto: R$${produto.price.toFixed(2)}`);
-console.log(`Quantidade no estoque: ${produto.inStock}`);
-console.log("==================================");
-const desconto = 5;
-const novoValor = produto.calculateDiscount(desconto);
-console.log(`Desconto no produto: ${desconto}%`);
-console.log(`Novo valor do produto: R$${novoValor.toFixed(2)}`);
+console.log(`Nome do produto: ${desconto.name}`)
+console.log(`Descrição do produto: ${desconto.description}`)
+console.log(`Valor do produto: R$${desconto.price.toFixed(2)}`)
+console.log(`Quantidade no estoque: ${desconto.inStock}`)
+const discount = 5
+const novopreco = desconto.calculateDiscount(discount)
+console.log(`Desconto no produto: ${discount}%`)
+console.log(`Novo valor do produto: R$${novopreco.toFixed(2)}`)
